@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Agent/design docs
+AGENTS.md
+DESIGN.md
+PRODUCT.md
+plan.md
+dev-plan.md
