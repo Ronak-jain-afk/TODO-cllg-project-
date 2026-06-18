@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-18T00:00:00.000Z",
+  "title": "Design System: FlowForge",
+  "extensions": {
+    "colorMeta": {
+      "accent": { "role": "primary", "displayName": "Terracotta", "canonical": "oklch(52% 0.14 38)", "tonalRamp": ["oklch(18% 0.06 38)", "oklch(25% 0.08 38)", "oklch(33% 0.10 38)", "oklch(42% 0.12 38)", "oklch(52% 0.14 38)", "oklch(62% 0.12 38)", "oklch(72% 0.10 38)", "oklch(85% 0.06 38)"] },
+      "bg-primary": { "role": "background", "displayName": "Workshop Paper", "canonical": "oklch(97% 0.004 80)", "tonalRamp": ["oklch(15% 0.01 70)", "oklch(30% 0.01 70)", "oklch(45% 0.01 75)", "oklch(60% 0.01 78)", "oklch(75% 0.005 80)", "oklch(85% 0.004 80)", "oklch(92% 0.004 80)", "oklch(97% 0.004 80)"] },
+      "ink": { "role": "text-primary", "displayName": "Warm Ink", "canonical": "oklch(15% 0.02 70)" },
+      "ink-secondary": { "role": "text-secondary", "displayName": "Tool Steel", "canonical": "oklch(42% 0.03 70)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "App title 'FlowForge'. Solid accent color, single weight." },
+      "body": { "displayName": "Body", "purpose": "All reading text — descriptions, filter labels, snackbar messages." },
+      "label": { "displayName": "Label", "purpose": "Badges, priority tags, timestamps, category pills." }
+    },
+    "shadows": [
+      { "name": "toast", "value": "0 2px 8px oklch(from var(--ink) l c h / 0.12)", "purpose": "Only shadow in the system. Used for snackbar and focus timer to signal break-out-of-flow." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Default easing for state transitions." },
+      { "name": "ease-out", "value": "cubic-bezier(0, 0, 0.2, 1)", "purpose": "Entrance animations (snackbar, timer)." },
+      { "name": "duration-fast", "value": "150ms", "purpose": "State transitions (hover, focus, border)." },
+      { "name": "duration-standard", "value": "250ms", "purpose": "Theme switch, entrance animations." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary actions — Add Todo, Snackbar Undo, Start Focus.",
+      "html": "<button class=\"ds-btn-primary\">Add Todo</button>",
+      "css": ".ds-btn-primary { background: oklch(52% 0.14 38); color: #fff; padding: 10px 20px; border: none; border-radius: 10px; font-family: 'Inter', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background-color 0.15s ease; } .ds-btn-primary:hover { background: oklch(48% 0.16 38); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(52% 0.14 38); outline-offset: 2px; } .ds-btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Icon actions — drag handle, delete, focus, close.",
+      "html": "<button class=\"ds-btn-ghost\">✕</button>",
+      "css": ".ds-btn-ghost { background: none; color: oklch(42% 0.03 70); padding: 6px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: color 0.15s ease; } .ds-btn-ghost:hover { color: oklch(52% 0.14 38); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Single-line text fields — add todo title, search, category.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"What do you need to do?\">",
+      "css": ".ds-input { padding: 10px 14px; border: 1px solid oklch(88% 0.008 80); border-radius: 10px; font-family: 'Inter', system-ui, sans-serif; font-size: 0.9375rem; background: #ffffff; color: oklch(15% 0.02 70); outline: none; transition: border-color 0.15s ease; } .ds-input::placeholder { color: oklch(42% 0.03 70); opacity: 1; } .ds-input:focus { border-color: oklch(52% 0.14 38); }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip-default",
+      "description": "Status filters, category and priority badges.",
+      "html": "<button class=\"ds-chip\">Active</button>",
+      "css": ".ds-chip { padding: 6px 14px; border: 1px solid oklch(88% 0.008 80); border-radius: 12px; background: oklch(93% 0.008 80); color: oklch(42% 0.03 70); cursor: pointer; font-family: 'Inter', system-ui, sans-serif; font-size: 0.8125rem; font-weight: 500; transition: background-color 0.15s ease, color 0.15s ease; } .ds-chip.active { background: oklch(52% 0.14 38); color: #fff; border-color: oklch(52% 0.14 38); }"
+    },
+    {
+      "name": "Todo Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Individual todo item — title, meta, priority tint, subtasks.",
+      "html": "<div class=\"ds-todo-card\"><div class=\"ds-todo-card-header\"><span class=\"ds-todo-title\">Design project architecture</span><span class=\"ds-badge\">high</span></div></div>",
+      "css": ".ds-todo-card { padding: 16px; background: oklch(93% 0.008 80); border-radius: 12px; } .ds-todo-card-header { display: flex; align-items: center; gap: 10px; } .ds-todo-title { font-size: 0.9375rem; font-weight: 500; color: oklch(15% 0.02 70); flex: 1; } .ds-badge { font-size: 0.75rem; font-weight: 500; padding: 2px 8px; border-radius: 6px; background: #ffffff; color: oklch(55% 0.025 70); }"
+    },
+    {
+      "name": "Select Input",
+      "kind": "input",
+      "refersTo": "select",
+      "description": "Dropdown selects — priority, filter category.",
+      "html": "<select class=\"ds-select\"><option>High</option><option>Medium</option><option>Low</option></select>",
+      "css": ".ds-select { padding: 10px 12px; border: 1px solid oklch(88% 0.008 80); border-radius: 10px; font-family: 'Inter', system-ui, sans-serif; font-size: 0.875rem; background: #ffffff; color: oklch(15% 0.02 70); outline: none; cursor: pointer; } .ds-select:focus { border-color: oklch(52% 0.14 38); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Workshop",
+    "overview": "FlowForge is a personal workshop, not a dashboard. It is the bench where you lay out your tasks, decide what matters, and get to work. The interface is warm but not cozy, structured but not rigid — like a well-organized workbench where every tool has its place and nothing is in the way. This system explicitly rejects the SaaS-generic aesthetic: no glassmorphism, no gradient text, no pastel accent colors, no side-stripe borders. Depth comes from tonal layering (surface sits on background at a perceptible lightness step), never from shadows or blur.",
+    "keyCharacteristics": [
+      "Warm without being soft. The terracotta accent carries the brand; nothing is playful or gamified.",
+      "Surfaces are solid, not translucent. One layer of depth (background to surface), no nesting.",
+      "Typography does the heavy lifting for hierarchy. Color supports, not leads.",
+      "Every interaction has a purpose. No animation for its own sake.",
+      "Intimate scale: one person, one tool, one screen at a time."
+    ],
+    "rules": [
+      { "name": "The One-Step Rule", "body": "There is exactly one surface level above the page background. Cards and inputs share this level. No nested cards, no lifted modals, no 'surface-on-surface' depth.", "section": "colors" },
+      { "name": "The One-Family Rule", "body": "No second typeface enters the system. Weight contrast (400 / 500 / 600) replaces what another family would do.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. The tonal step between background and surface is the only depth signal.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use the tonal step (background to surface at L=93%) as the only depth mechanism.",
+      "Do use priority colors as full-card background tints at 10% opacity, not as side-stripe borders.",
+      "Do keep the accent to 10% or less of any given screen.",
+      "Do use Inter across the entire UI. One family, three weights (400/500/600).",
+      "Do test every text color against its background for 4.5:1 contrast."
+    ],
+    "donts": [
+      "Don't use glassmorphism — no backdrop-filter blur, no semi-transparent backgrounds, no glass-border effects.",
+      "Don't use gradient text (background-clip: text with a gradient). Single solid color only.",
+      "Don't use side-stripe borders (border-left / border-right greater than 1px as a colored accent).",
+      "Don't pair a 1px border with a box-shadow blur 16px+ on the same element.",
+      "Don't exceed 12px border-radius on cards. 10px on inputs and buttons.",
+      "Don't use z-index values outside the semantic scale (10/20/30/40/50/60).",
+      "Don't animate layout properties. Use transform and opacity only."
+    ]
+  }
+}
